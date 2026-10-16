@@ -104,6 +104,7 @@ jobs:
             bin codex-resources codex-path codex-package.json CodexCLI.app
       - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: provisioned-macos-signed-candidate-${{ matrix.target }}
           path: signed/*.tar.gz
           if-no-files-found: error
@@ -111,6 +112,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: provisioned-macos-signing-reports-${{ matrix.target }}
           path: signing-verification/
           if-no-files-found: warn
@@ -202,6 +204,7 @@ jobs:
       - name: Retain verified candidate only after package tests pass
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: provisioned-macos-verified-candidate-${{ matrix.target }}
           path: verified/*
           if-no-files-found: error
@@ -209,6 +212,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: provisioned-macos-verification-reports-${{ matrix.target }}
           path: signing-verification/
           if-no-files-found: warn

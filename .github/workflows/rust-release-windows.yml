@@ -109,6 +109,7 @@ jobs:
       - name: Upload Cargo timings
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: cargo-timings-rust-release-windows-${{ matrix.target }}-${{ matrix.bundle }}
           path: ${{ env.CARGO_TARGET_DIR }}/**/cargo-timings/cargo-timing.html
           if-no-files-found: warn
@@ -137,6 +138,7 @@ jobs:
       - name: Upload Windows binaries
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: windows-binaries-${{ matrix.target }}-${{ matrix.bundle }}
           path: |
             ${{ env.CARGO_TARGET_DIR }}/${{ matrix.target }}/release/staged-${{ matrix.bundle }}/*
@@ -262,6 +264,7 @@ jobs:
           tar -C "$output" -czf "voice-unsigned-${TARGET}.tar.gz" runtime codex-voice-host.exe
       - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: voice-${{ matrix.target }}-unsigned
           path: voice-unsigned-${{ matrix.target }}.tar.gz
           if-no-files-found: error
@@ -306,6 +309,7 @@ jobs:
       - name: Upload symbols archive
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: ${{ matrix.target }}-symbols
           path: codex-rs/symbols-dist/${{ matrix.target }}/*
           if-no-files-found: error
@@ -557,6 +561,7 @@ jobs:
       - name: Upload Python runtime wheel
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: python-runtime-wheel-${{ matrix.target }}
           path: python-runtime-dist/${{ matrix.target }}/*.whl
           if-no-files-found: error
@@ -622,6 +627,7 @@ jobs:
 
       - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: ${{ matrix.target }}
           path: |
             codex-rs/dist/${{ matrix.target }}/*
