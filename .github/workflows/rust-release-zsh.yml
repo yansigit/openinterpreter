@@ -98,6 +98,7 @@ jobs:
 
       - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: codex-zsh-${{ matrix.target }}
           path: dist/zsh/${{ matrix.target }}/*
 
@@ -141,6 +142,7 @@ jobs:
 
       - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: codex-zsh-${{ matrix.target }}
           path: dist/zsh/${{ matrix.target }}/*
 

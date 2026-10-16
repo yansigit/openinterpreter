@@ -226,6 +226,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: cargo-timings-rust-ci-nextest-${{ inputs.target }}-${{ inputs.profile }}
           path: ${{ env.CARGO_TARGET_DIR }}/**/cargo-timings/cargo-timing.html
           if-no-files-found: warn
@@ -444,6 +445,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
+          retention-days: 7
           name: nextest-junit-rust-ci-${{ inputs.artifact_id }}-shard-${{ matrix.shard }}
           path: ${{ env.CARGO_TARGET_DIR }}/nextest/default/junit.xml
           if-no-files-found: warn
